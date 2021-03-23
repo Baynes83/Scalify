@@ -6,4 +6,4 @@ To run the project execute the following commands in Terminal after cloning the 
 
 1. Make sure Tuist is installed. If not run `bash <(curl -Ls https://install.tuist.io)`.
 2. Run `tuist generate`. This will generate the needed `xcodeproj` and `xcworkspace` files.
-3. Run `tuist focus App` to open the project in Xcode.
+3. Run `tuist focus MainApp` to open the project in Xcode.

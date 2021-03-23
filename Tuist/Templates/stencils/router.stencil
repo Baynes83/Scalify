@@ -1,0 +1,5 @@
+public protocol {{ name }}Router {
+
+    func {{ name|lowerFirstLetter }}Finished(withResult result: Result<<#Return Type#>, Error>)
+
+}

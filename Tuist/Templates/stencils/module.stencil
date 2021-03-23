@@ -1,0 +1,14 @@
+import NavigationRouter
+
+public final class {{ name }}Module: RoutableModule {
+
+    public static let id = "/{{ name|lowerFirstLetter }}"
+    
+    public init() {}
+    
+    public func registerRoutes() {
+        let route = NavigationRoute(path: Self.id, type: {{ name }}ViewModel.self)
+        NavigationRouter.bind(route: route)
+    }
+
+}

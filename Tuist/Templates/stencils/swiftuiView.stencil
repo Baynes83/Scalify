@@ -1,0 +1,22 @@
+import SwiftUI
+import NavigationRouter
+
+struct {{ name }}View: View {
+
+    @ObservedObject var viewModel: {{ name }}ViewModel
+
+    init(viewModel: {{ name }}ViewModel) {
+        self.viewModel = viewModel
+    }
+
+    var body: some View {
+        return Text("{{ name }}View")
+    }
+
+}
+
+struct {{ name }}View_Previews: PreviewProvider {
+    static var previews: some View {
+        {{ name }}View(viewModel: {{ name }}ViewModel(parameters: nil))
+    }
+}

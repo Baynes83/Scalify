@@ -1,6 +1,5 @@
 enum AppState {
     
-    case bootstrap
-    case home
+    case scaleFinder
     
 }

@@ -2,10 +2,7 @@ import SwiftUI
 import NavigationRouter
 import Resolver
 
-import Bootstrap
-import Home
-import Detail
-import Profile
+import ScaleFinder
 
 struct MainAppView: RoutableView {
     
@@ -13,29 +10,15 @@ struct MainAppView: RoutableView {
     
     init(viewModel: MainAppViewModel) {
         self.viewModel = viewModel
-        Resolver.register { [self] in self as HomeRouter } 
+        Resolver.register { [self] in self as ScaleFinderRouter }
     }
-
+    
     var body: some View {
         
         switch viewModel.appState {
-        case .bootstrap:
-            BootstrapFactory.create(router: self)
-        case .home:
-            
-            TabView {
-                NavigationRouter.main.viewFor(path: HomeModule.id)
-                    .tabItem {
-                        Image(systemName: "house.circle")
-                        Text("Home")
-                    }
-                
-                ProfileFactory.create(router: self)
-                    .tabItem {
-                        Image(systemName: "person.crop.circle")
-                        Text("Profile")
-                    }
-            }.navigationBarTitle("Main")
+        case .scaleFinder:
+            NavigationRouter.main.viewFor(path: ScaleFinderModule.id)
+                .navigationBarTitle("Scalify")
             
         }
     
@@ -43,43 +26,10 @@ struct MainAppView: RoutableView {
 
 }
 
-extension MainAppView: BootstrapRouter {
+extension MainAppView: ScaleFinderRouter {
     
-    func bootstrapFinished(withResult result: Result<BootstrapState, Error>) {
-        
-        switch result {
-        case .success(let bootstrapState):
-            switch bootstrapState {
-            case .authenticated:
-                viewModel.appState = .home
-            case .unauthenticated:
-                viewModel.appState = .bootstrap
-            }
-        case .failure(let error):
-            // TODO: handle error
-            print(error)
-        }
-        
-    }
-    
-}
-
-extension MainAppView: HomeRouter {
-
-    func selectedDetail(id: String) {
-        NavigationRouter.main.navigate(toPath: DetailModule.id)
-    }
-    
-    func homeFinished(withResult result: Result<Void, Error>) {
-        
-    }
-    
-}
-
-extension MainAppView: ProfileRouter {
-    
-    func profileFinished(withResult result: Result<Void, Error>) {
-        
+    func scaleFinderFinished(withResult result: Result<Void, Error>) {
+        // No-op
     }
     
 }

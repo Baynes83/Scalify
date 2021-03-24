@@ -34,38 +34,19 @@ func targets(name: String) -> [Target] {
         name: "MainApp",
         deploymentTarget: deploymentTarget,
         dependencies: [
-            .target(name: "Bootstrap"),
-            .target(name: "Home"),
-            .target(name: "Detail"),
+            .target(name: "ScaleFinder"),
             .target(name: "Resolver"),
             .target(name: "SPMDependencies")
         ]
     )
     targets += Target.makeFeatureTargets(
-        name: "Bootstrap",
+        name: "ScaleFinder",
         deploymentTarget: deploymentTarget,
         dependencies: [
             .target(name: "SPMDependencies"),
             .target(name: "Resolver"),
             .target(name: "CleanArch"),
-        ]
-    )
-    targets += Target.makeFeatureTargets(
-        name: "Home",
-        deploymentTarget: deploymentTarget,
-        dependencies: [
-            .target(name: "SPMDependencies"),
-            .target(name: "Resolver"),
-            .target(name: "CleanArch")
-        ]
-    )
-    targets += Target.makeFeatureTargets(
-        name: "Detail",
-        deploymentTarget: deploymentTarget,
-        dependencies: [
-            .target(name: "SPMDependencies"),
-            .target(name: "Resolver"),
-            .target(name: "CleanArch")
+            .target(name: "Utils")
         ]
     )
     targets += Target.makeCommonTargets(
@@ -82,6 +63,10 @@ func targets(name: String) -> [Target] {
     )
     targets += Target.makeCommonTargets(
         name: "CleanArch",
+        deploymentTarget: deploymentTarget
+    )
+    targets += Target.makeCommonTargets(
+        name: "Utils",
         deploymentTarget: deploymentTarget
     )
     return targets

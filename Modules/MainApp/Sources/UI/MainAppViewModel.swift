@@ -3,7 +3,7 @@ import NavigationRouter
 
 final class MainAppViewModel: RoutableViewModel, ObservableObject {
     
-    @Published var appState: AppState = .bootstrap
+    @Published var appState: AppState = .scaleFinder
     
     static var requiredParameters: [String]?
     

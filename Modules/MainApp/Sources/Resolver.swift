@@ -2,8 +2,7 @@ import Foundation
 import Resolver
 import NavigationRouter
 
-import Bootstrap
-import Home
+import ScaleFinder
 
 extension Resolver: ResolverRegistering {
     
@@ -13,7 +12,7 @@ extension Resolver: ResolverRegistering {
         register { NavigationRouter.main }
         RoutableModulesFactory.loadRoutableModules()
         
-        resolveBootstrap()
+        resolveScaleFinder()
     }
     
 }

@@ -1,0 +1,21 @@
+import SwiftUI
+import NavigationRouter
+import Combine
+import Resolver
+
+final class {{ name }}ViewModel: RoutableViewModel, ObservableObject {
+
+    @Injected private var router: {{name }}Router
+    
+    static var requiredParameters: [String]?
+    var navigationInterceptionExecutionFlow: NavigationInterceptionFlow?
+    
+    var routedView: AnyView {
+        {{ name }}View(viewModel: self).eraseToAnyView()
+    }
+    
+    init(parameters: [String : String]?) {
+        
+    }
+
+}

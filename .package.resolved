@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "NavigationRouter",
+        "repositoryURL": "https://github.com/corteggo/NavigationRouter",
+        "state": {
+          "branch": null,
+          "revision": "a91ba4dbfe53382c2bce52bd1f8c1ba29fcfb530",
+          "version": "1.0.3"
+        }
+      },
+      {
+        "package": "SnapshotTesting",
+        "repositoryURL": "https://github.com/pointfreeco/swift-snapshot-testing.git",
+        "state": {
+          "branch": null,
+          "revision": "c466812aa2e22898f27557e2e780d3aad7a27203",
+          "version": "1.8.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

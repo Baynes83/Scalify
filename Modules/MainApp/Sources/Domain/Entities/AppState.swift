@@ -1,0 +1,5 @@
+enum AppState {
+    
+    case scaleFinder
+    
+}

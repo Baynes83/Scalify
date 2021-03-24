@@ -8,6 +8,7 @@ To run the project execute the following commands in Terminal after cloning the 
 
 1. Run `.tuist-bin/tuist generate`. This will generate the needed `xcodeproj` and `xcworkspace` files.
 2. Run `xed .` to open the project in Xcode.
+3. Before running the project please make sure to select the `Scalify-Project` scheme.
 
 ## Modular
 

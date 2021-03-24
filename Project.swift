@@ -55,6 +55,9 @@ func targets(name: String) -> [Target] {
         deploymentTarget: deploymentTarget,
         dependencies: [
             .package(product: "NavigationRouter")
+        ],
+        testDependencies: [
+            .package(product: "SnapshotTesting")
         ]
     )
     targets += Target.makeCommonTargets(
@@ -76,7 +79,8 @@ func targets(name: String) -> [Target] {
 let project = Project(
     name: appName,
     packages: [
-        .package(url: "https://github.com/corteggo/NavigationRouter", .upToNextMajor(from: "1.0.0"))
+        .package(url: "https://github.com/corteggo/NavigationRouter", .upToNextMajor(from: "1.0.0")),
+        .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", .upToNextMajor(from: "1.8.1"))
     ],
     settings: Settings(configurations: configurations),
     targets: targets(name: appName)

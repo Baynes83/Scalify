@@ -13,7 +13,7 @@ extension Target {
         name: String,
         deploymentTarget: ProjectDescription.DeploymentTarget,
         dependencies: [ProjectDescription.TargetDependency] = [],
-        testDependencies: [String] = []
+        testDependencies: [ProjectDescription.TargetDependency]  = []
     ) -> [Target] {
         
         let sourcesPath = "Modules/\(name)/Sources"
@@ -83,6 +83,9 @@ extension Target {
                                     ]
                                 ]
                             ]
+                        ],
+                        "NSAppTransportSecurity": [
+                            "NSAllowsArbitraryLoads": true
                         ]
                     ]
                 ),
@@ -102,7 +105,7 @@ extension Target {
                 dependencies: [
                     .target(name: name),
                     .xctest
-                ] + testDependencies.map({ .target(name: $0) }),
+                ] + testDependencies,
                 settings: Settings(configurations: testsConfigurations)
             ),
             Target(
@@ -116,7 +119,7 @@ extension Target {
                 dependencies: [
                     .target(name: name),
                     .xctest
-                ] + testDependencies.map({ .target(name: $0) }),
+                ] + testDependencies,
                 settings: Settings(configurations: testsConfigurations)
             )
         ]
@@ -127,7 +130,7 @@ extension Target {
         product: ProjectDescription.Product = .framework,
         deploymentTarget: ProjectDescription.DeploymentTarget,
         dependencies: [ProjectDescription.TargetDependency] = [],
-        testDependencies: [String] = [],
+        testDependencies: [ProjectDescription.TargetDependency] = [],
         targets: Set<uFeatureTarget> = Set(uFeatureTarget.allCases),
         sdks: [String] = [],
         dependsOnXCTest: Bool = false
@@ -155,7 +158,7 @@ extension Target {
         product: ProjectDescription.Product = .framework,
         deploymentTarget: ProjectDescription.DeploymentTarget,
         dependencies: [ProjectDescription.TargetDependency] = [],
-        testDependencies: [String] = [],
+        testDependencies: [ProjectDescription.TargetDependency] = [],
         targets: Set<uFeatureTarget> = Set(uFeatureTarget.allCases),
         sdks: [String] = [],
         dependsOnXCTest: Bool = false
@@ -184,7 +187,7 @@ extension Target {
         rootModuleDir: String,
         deploymentTarget: ProjectDescription.DeploymentTarget,
         dependencies: [ProjectDescription.TargetDependency] = [],
-        testDependencies: [String] = [],
+        testDependencies: [ProjectDescription.TargetDependency] = [],
         targets: Set<uFeatureTarget> = Set(uFeatureTarget.allCases),
         sdks: [String] = [],
         dependsOnXCTest: Bool = false
@@ -206,7 +209,7 @@ extension Target {
         let targetTestDependencies: [TargetDependency] = [
             .target(name: "\(name)"),
             .xctest,
-        ] + testDependencies.map({ .target(name: $0) })
+        ] + testDependencies
         
         // Target dependencies
         var targetDependencies = dependencies

@@ -1,6 +1,6 @@
 import Foundation
 
-struct Scale {
+struct Scale: Equatable {
     
     let rootNote: String
     let mode: String

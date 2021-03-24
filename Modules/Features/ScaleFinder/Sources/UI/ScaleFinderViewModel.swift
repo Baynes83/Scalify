@@ -24,8 +24,7 @@ final class ScaleFinderViewModel: RoutableViewModel, ObservableObject {
     }
     
     @Injected private var router: ScaleFinderRouter
-    
-    private let getScalesInteractor = GetScalesInteractor()
+    @Injected private var getScalesInteractor: GetScalesInteractor
     
     private var cancellableSet: Set<AnyCancellable> = []
     

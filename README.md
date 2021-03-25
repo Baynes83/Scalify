@@ -33,3 +33,7 @@ The Common layer consists of modules which can be used by the App Module or Feat
 ### External dependencies
 
 External dependencies are added through SPM. In order to make it possible to use the same external dependency in several modules all external dependencies are added to the dynamic framework `SPMDependencies`. This is a workaround for the `duplicate symbols` error in Xcode if a (static) framework is added to different modules.
+
+### Error handling
+
+The current implementation does not present any error to the user. This needs to be improved off course. I am thinking of some sort of Toast/Snackbar message when an error occurs, eventually with a retry option.

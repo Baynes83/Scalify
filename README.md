@@ -12,7 +12,7 @@ To run the project execute the following commands in Terminal after cloning the 
 
 ## Modular
 
-This project has a modular structure. This means that the app contains of multiple modules. I think this picture explains this setup quite nicely.
+This project has a modular structure. This means that the app contains multiple modules. I think this picture explains this setup quite nicely.
 
 ![Modular](https://miro.medium.com/max/4800/1*R0eXIAd8_2A1jnfA1LqD2Q.png)
 
